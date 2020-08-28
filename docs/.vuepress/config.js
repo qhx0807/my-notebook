@@ -20,7 +20,7 @@ module.exports = {
     sidebar: {
       '/guide/': [
         {
-          title: '^_^',
+          title: 'JavaScript基础',
           path: '/guide/',
           collapsable: false,
           children: [
