@@ -12,7 +12,7 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: '基础知识', link: '/guide/' },
+      { text: '基础知识', link: '/guide/prototype' },
       { text: '必会习题', link: '/questions/' },
       { text: 'Github', link: 'https://github.com/qhx0807' },
     ],
@@ -21,7 +21,7 @@ module.exports = {
       '/guide/': [
         {
           title: 'JavaScript基础',
-          path: '/guide/',
+          path: '/guide',
           collapsable: false,
           children: [
             '/guide/prototype',
