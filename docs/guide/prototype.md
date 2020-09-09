@@ -39,3 +39,7 @@ Fn.prototype === fn.__proto__    // true
 Fn === Fn.prototype.constructor   // true
 ```
 
+
+## 图
+
+![](http://cdn.cqhiji.com/pic/20200901155746.jpg)

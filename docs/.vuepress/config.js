@@ -26,7 +26,7 @@ module.exports = {
           children: [
             '/guide/prototype',
             '/guide/context-and-stack',
-            '/guide/one'
+            '/guide/scope-and-scope-chain'
           ]
         },
       ],
