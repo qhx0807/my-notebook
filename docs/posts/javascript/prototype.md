@@ -1,7 +1,6 @@
 ---
 title: JacaScript原型及原型链
 ---
-
 ## 实例与原型
 
 使用构造函数创建对象
@@ -15,7 +14,6 @@ Fn.prototype.test = function() {
 }
 var fn = new Fn()
 ```
-
 
 ### prototype
 
@@ -38,7 +36,6 @@ Fn.prototype === fn.__proto__    // true
 ```js
 Fn === Fn.prototype.constructor   // true
 ```
-
 
 ## 图
 
