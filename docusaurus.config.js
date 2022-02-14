@@ -17,7 +17,7 @@ const config = {
   projectName: 'my-notebook', // Usually your repo name.
   i18n: {
     defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans', 'fr'],
+    locales: ['zh-Hans'],
   },
   presets: [
     [
@@ -27,12 +27,12 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/qhx0807/my-notebook',
+          editUrl: 'https://github.com/qhx0807/my-notebook/blob/master',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl: 'https://github.com/qhx0807/my-notebook',
+          editUrl: 'https://github.com/qhx0807/my-notebook/blob/master',
           path: './blog',
           routeBasePath: '/',
           // blogSidebarTitle: '最近博客',
@@ -84,48 +84,20 @@ const config = {
         ],
       },
       footer: {
-        // style: 'dark',
-        // links: [
-        //   {
-        //     title: 'Docs',
-        //     items: [
-        //       {
-        //         label: 'Tutorial',
-        //         to: '/docs/intro',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     title: 'Community',
-        //     items: [
-        //       {
-        //         label: 'Stack Overflow',
-        //         href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-        //       },
-        //       {
-        //         label: 'Discord',
-        //         href: 'https://discordapp.com/invite/docusaurus',
-        //       },
-        //       {
-        //         label: 'Twitter',
-        //         href: 'https://twitter.com/docusaurus',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     title: 'More',
-        //     items: [
-        //       {
-        //         label: 'Blog',
-        //         to: '/blog',
-        //       },
-        //       {
-        //         label: 'GitHub',
-        //         href: 'https://github.com/facebook/docusaurus',
-        //       },
-        //     ],
-        //   },
-        // ],
+        style: 'light',
+        links: [
+          {
+            items: [
+              {
+                html: `
+                    <a href="http://www.beian.gov.cn/portal/index" target="_blank" rel="noreferrer noopener" >
+                    渝ICP备17007630号-4
+                    </a>
+                  `,
+              },
+            ],
+          },
+        ],
         copyright: `Copyright © ${new Date().getFullYear()}. Built with Docusaurus.`,
       },
       prism: {

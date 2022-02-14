@@ -26,3 +26,13 @@
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+.footer__items{
+  text-align: center;
+}
+.footer__title{
+  display: none;
+}
+.footer__links{
+  margin-bottom: 0;
+}
