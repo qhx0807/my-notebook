@@ -12,6 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  themes: ['@docusaurus/theme-live-codeblock'],
   favicon: 'img/favicon.ico',
   organizationName: 'qhx0807', // Usually your GitHub org/user name.
   projectName: 'my-notebook', // Usually your repo name.
