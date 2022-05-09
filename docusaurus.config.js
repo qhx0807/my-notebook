@@ -91,7 +91,7 @@ const config = {
             items: [
               {
                 html: `
-                    <a href="http://www.beian.gov.cn/portal/index" target="_blank" rel="noreferrer noopener" >
+                    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer noopener" >
                     渝ICP备17007630号-4
                     </a>
                   `,
