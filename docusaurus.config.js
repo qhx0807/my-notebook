@@ -73,7 +73,7 @@ const config = {
           },
           // {
           //   type: 'doc',
-          //   docId: 'algorithm',
+          //   docId: 'posts/algorithm',
           //   position: 'left',
           //   label: '算法',
           // },

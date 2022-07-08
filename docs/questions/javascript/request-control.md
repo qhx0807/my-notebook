@@ -1,0 +1,66 @@
+---
+title: 请求并发限制
+---
+
+题目：请实现如下的函数，可以批量请求数据，所有的 URL 地址在 urls 参数中，同时可以通过 max 参数控制请求的并发度，当所有请求结束之后，需要执行 callback 回掉函数。发请求的函数可以直接使用 fetch 即可。
+
+![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/2/1700586de2c41042~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp)
+
+### 模拟一个 `request` 函数
+
+```js
+function request(data) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(data);
+    }, 300);
+  });
+}
+```
+
+### 思路：把请求放入一个队列里，队列长度为 `limit`, 发起一个请求 `limit++`, 结束一个请求 `limit--`,
+
+`counter` 记录已完成的请求数量，当 `counter === urls.length` 所有请求已完成。
+
+```js
+/**
+ * 请求并发限制
+ * chorme浏览器下，最大并发请求数为6
+ * 一次性打开过多请求会导致浏览器崩溃
+ * 这里就不用callback了，async/await更流行一点
+ * @param {string[]} urls
+ * @param {number} [limit=3]
+ * @return {Promise<void>}
+ */
+async function requestPool(urls, limit = 3) {
+  if (Object.prototype.toString.call(urls) !== "[object Array]") {
+    return false;
+  }
+  return new Promise((resolve) => {
+    const len = urls.length;
+    let i = 0; // 当前请求的下标
+    let counter = 0; // 当前请求完成的计数
+    const start = async () => {
+      while (i < len && limit > 0) {
+        limit--; //占用一个并发
+        // eslint-disable-next-line no-loop-func
+        request({
+          url: urls[i],
+          method: "GET",
+        }).then(() => {
+          limit++; // 释放一个并发
+          counter++;
+          i++;
+          if (counter === len) {
+            resolve();
+          } else {
+            start();
+          }
+        });
+      }
+    };
+
+    start();
+  });
+}
+```

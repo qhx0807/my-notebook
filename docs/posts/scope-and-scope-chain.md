@@ -1,6 +1,9 @@
 ---
 title: JavaScript作用域与作用域链
+date: 2021-08-02
+sidebar_position: 2
 ---
+
 ## 作用域
 
 作用域是指程序源代码中定义变量的区域。
@@ -19,12 +22,12 @@ JavaScript 采用词法作用域(lexical scoping)，也就是静态作用域。
 var value = 1;
 
 function foo() {
-    console.log(value);
+  console.log(value);
 }
 
 function bar() {
-    var value = 2;
-    foo();
+  var value = 2;
+  foo();
 }
 
 bar();
@@ -34,8 +37,8 @@ bar();
 
 ### 全局作用域&函数作用域
 
-* 在 `Web` 浏览器中，全局执行环境被认为是 `window` 对象，因此所有全局变量和函数都是作为 `window` 对象的属性和方法创建的。
-* 在 `node.js` 环境中，全局执行环境是 `global` 对象。
+- 在 `Web` 浏览器中，全局执行环境被认为是 `window` 对象，因此所有全局变量和函数都是作为 `window` 对象的属性和方法创建的。
+- 在 `node.js` 环境中，全局执行环境是 `global` 对象。
 
 ## 作用域链
 
