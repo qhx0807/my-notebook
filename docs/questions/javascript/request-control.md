@@ -40,6 +40,8 @@ async function requestPool(urls, limit = 3) {
     const len = urls.length;
     let i = 0; // 当前请求的下标
     let counter = 0; // 当前请求完成的计数
+    const url = urls[i];
+    i++; // 不能放到then()里面， i++要确保是同步的，不然会出现i相同的情况
     const start = async () => {
       while (i < len && limit > 0) {
         limit--; //占用一个并发
@@ -50,7 +52,7 @@ async function requestPool(urls, limit = 3) {
         }).then(() => {
           limit++; // 释放一个并发
           counter++;
-          i++;
+          // i++; 不能放到这个地方
           if (counter === len) {
             resolve();
           } else {
