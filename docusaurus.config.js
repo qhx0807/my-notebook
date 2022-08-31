@@ -63,7 +63,7 @@ const config = {
             type: 'doc',
             docId: 'questions/questions',
             position: 'left',
-            label: '面试题',
+            label: '每日一题',
           },
           {
             type: 'doc',
