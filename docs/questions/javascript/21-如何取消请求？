@@ -1,0 +1,66 @@
+---
+title: 如何取消请求？
+---
+
+### XMLHttpRequest 
+
+使用 abort 方法取消
+
+```js
+const xhr = new XMLHttpRequest();
+xhr.open('get', 'url')
+xhr.send()
+
+// 取消请求
+xhr.abort();
+```
+
+### fetch
+
+使用 `AbortController`
+
+[AbortController](https://developer.mozilla.org/zh-CN/docs/Web/API/AbortSignal) 不仅可以取消fetch请求，也可以取消事件的监听(通过 `addEventListener` 的第三个参数 `signal` 控制)
+
+```js
+const controller = new AbortController();
+const signal = controller.signal;
+
+fetch(url, {signal}).then(response => {
+  //...
+}).catch(err => {
+  // 取消后会返回 AbortError
+})
+
+controller.abort();
+```
+
+### axios
+
+使用 `cancleToken` 
+
+```js
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
+
+axios.get("/user/1", {
+    cancelToken: source.token,
+  })
+  .catch(function (thrown) {
+    if (axios.isCancel(thrown)) {
+      console.log("Request canceled", thrown.message);
+    } else {
+      // handle error
+    }
+  });
+
+axios.post("/user/2", { name: "new name"}, { cancelToken: source.token });
+
+// cancel the request (the message parameter is optional)
+source.cancel("Operation canceled by the user.");
+```
+
+原理： 
+
+浏览器端基于XHR, `xhr.abort()` [lib/adapters/xhr.js](https://github.com/axios/axios/blob/v0.21.1/lib/adapters/xhr.js#L165)
+
+node端基于 `http/https/follow-redirects` [lib/adapters/http.js](https://github.com/axios/axios/blob/v0.21.1/lib/adapters/http.js#L289)
