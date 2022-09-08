@@ -5,4 +5,4 @@ sidebar_position: 0
 
 ## JavaScript
 
-* [【001】浏览器请求并发限制](/docs/questions/javascript/01)
+* [【001】浏览器请求并发限制](/docs/questions/javascript/浏览器请求并发限制)
