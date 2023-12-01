@@ -92,7 +92,7 @@ const config = {
               {
                 html: `
                     <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer noopener" >
-                    渝ICP备17007630号-4
+                    渝ICP备17007630号-7
                     </a>
                   `,
               },
